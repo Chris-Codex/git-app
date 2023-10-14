@@ -34,7 +34,10 @@ const Home = () => {
                         <FiSearch />
                         <input placeholder='is:pr is:open' className='thumCrumbLeftSide-input' />
                     </div>
-                    <div className='thumbCrumb_btn1'><HiOutlineTag size={16} />&nbsp;Labels</div>
+                    <div className='thumbCrumb_btn1'>
+                        <HiOutlineTag size={16} />
+                        <p>Label</p>
+                    </div>
                     <div className='thumbCrumb_btn1'><GoMilestone size={16} />&nbsp;Milestone</div>
                 </div>
                 <div className='thumCrumbRightSide'>New</div>

@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { DiGitPullRequest } from 'react-icons/di'
 import { PiCheckThin } from 'react-icons/pi'
-import { BiSolidDownArrow, BiMessage } from 'react-icons/bi'
+import { BiSolidDownArrow } from 'react-icons/bi'
 import { DiGitCompare } from 'react-icons/di'
 import { BsCheckLg } from 'react-icons/bs'
 import Pagination from './Pagination'
+import { ThemeContext } from '../context/ContextApi'
+import Comments from './Comments'
+import axios from 'axios'
+import { BiMessage } from 'react-icons/bi'
 
 const List = () => {
+    const { prList } = useContext(ThemeContext)
+    const [hello, setHello] = useState(0)
+    console.log("RESPONSE", prList)
+
+
     return (
         <div className='list-header'>
             <div className='list-top-title'>
@@ -51,27 +60,39 @@ const List = () => {
             </div>
 
             {/*RENDER*/}
-            <div className='list-body-header'>
-                <div className='list-body-header-icon'>
-                    <DiGitCompare size={20} color="#018339" />
-                </div>
-                <div className='list-body-header-text'>
-                    <p>Prerendering support for useDefferedValue</p>
-                    <div className='header-text-1'>
-                        <p>suspends</p>
-                        <BsCheckLg size={17} color="#018339" />
-                    </div>&nbsp;
-                    <div className='header-text-1'>
-                        <div className='header-sub-text-1'>CLA Signed</div>
-                        <div className='header-sub-text-2'>React Core Team</div>
+            {prList?.map((pr, index) => {
+                return (
+                    <div className='list-body-header' key={index}>
+                        <div className='list-body-header-icon'>
+                            <DiGitCompare size={20} color="#018339" />
+                        </div>
+                        <div className='list-body-header-text'>
+                            <p>{pr.title}</p>
+                            <div className='header-text-1'>
+                                <p>suspends</p>
+                                <BsCheckLg size={17} color="#018339" />
+                            </div>&nbsp;
+                            {pr.labels.map((label) => (
+                                <>
+                                    <div className='header-text-1'>
+                                        {label.name === "CLA Signed" ? (
+                                            <div className='header-sub-text-1'>{label.name}</div>
+                                        ) : label.name === "React Core Team" ? (
+                                            <div className='header-sub-text-2'>{label.name}</div>
+                                        ) : ''}
+                                    </div>
+                                    <p className='para'>{label.description}</p>
+                                </>
+                            ))}
+                        </div>
+                        {/* {getCommentsNumber(pr.comments_url) && <div className='list-body-header-action'>
+                            <BiMessage />
+                            <p>{hello}</p>
+                        </div>} */}
+                        <Comments commentsUrl={pr.comments_url} />
                     </div>
-                    <p className='para'>#2749 opened yesterday by chris</p>
-                </div>
-                <div className='list-body-header-action'>
-                    <BiMessage />
-                    <p>1</p>
-                </div>
-            </div>
+                )
+            })}
             <Pagination />
         </div>
     )

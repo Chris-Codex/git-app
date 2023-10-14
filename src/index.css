@@ -226,7 +226,6 @@ body {
 .thumbCrumb_btn1 {
   display: flex;
   align-items: center;
-  justify-content: center;
   padding-left: 10px;
   width: 10%;
   height: 40px;
@@ -344,8 +343,11 @@ body {
  .header-text-1 {
    display: flex;
    align-items: center;
-   gap: 4px;
    font-size: 13px;
+ }
+
+ .header-text-1 p {
+  display: none;
  }
 
  .header-sub-text-1 {
@@ -353,7 +355,7 @@ body {
    align-items: center;
    justify-content: center;
    font-size: 13px;
-   width: 90px;
+   width: 120px;
    height: 21px;
    background-color: #dadada;
    border-radius: 14px;
@@ -366,6 +368,7 @@ body {
    font-size: 14px;
    width: 130px;
    height: 21px;
+   margin-left: 10px;
    background-color: #9704db;
    border-radius: 14px;
    color: #fff;
@@ -396,7 +399,7 @@ body {
   margin-top: 20px;
   margin-left: 3%;
   border-bottom: 1px solid #bcbcbc;
-  width: 96.4%;
+  width: 94%;
   padding-bottom: 30px;
  }
 
@@ -818,11 +821,11 @@ body {
     width: 110%;
     height: auto;
     margin-left: -34px;
-    padding-bottom: 10px;
+    padding-bottom: 1px;
     padding-top: 15px;
     padding-left: 35px;
     padding-right: 26px;
-    border-bottom: 1px solid #c7c7c7;
+    border-bottom: 1px solid #e2e2e2bb;
   }
 
   .list-body-header-text {
@@ -838,6 +841,7 @@ body {
     align-items: center;
     gap: 4px;
     font-size: 13px;
+    width: 100%;
   }
 
   .header-sub-text-1 {
@@ -849,7 +853,7 @@ body {
     height: 21px;
     border: 1px solid #888;
     border-radius: 14px;
-    margin-top: -34px;
+    margin-top: -28px;
   }
 
   .header-sub-text-2 {
@@ -860,14 +864,16 @@ body {
     width: 100px;
     height: 21px;
     background-color: #9704db;
+    margin-left: 90px;
     border-radius: 14px;
     color: #fff;
-    margin-top: -34px;
+    margin-top: -28px;
   }
 
   .para {
     font-size: 12px;
-    color: #777;
+    color: #9f9f9f;
+    margin-top: 12px;
   }
 
   .list-top-web-title {
