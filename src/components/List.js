@@ -1,20 +1,31 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DiGitPullRequest } from 'react-icons/di'
 import { PiCheckThin } from 'react-icons/pi'
 import { BiSolidDownArrow } from 'react-icons/bi'
 import { DiGitCompare } from 'react-icons/di'
 import { BsCheckLg } from 'react-icons/bs'
-import Pagination from './Pagination'
 import { ThemeContext } from '../context/ContextApi'
 import Comments from './Comments'
-import axios from 'axios'
-import { BiMessage } from 'react-icons/bi'
+import ReactPaginate from 'react-paginate';
 
 const List = () => {
     const { prList } = useContext(ThemeContext)
-    const [hello, setHello] = useState(0)
-    console.log("RESPONSE", prList)
+    const [currentPage, setCurrentPage] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage = 10;
 
+    useEffect(() => {
+        const endOffset = itemOffset + itemsPerPage;
+        setCurrentPage(prList.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(prList.length / itemsPerPage))
+    }, [itemOffset, itemsPerPage, prList])
+
+    // Invoke when user click to request another page.
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % prList.length;
+        setItemOffset(newOffset);
+    };
 
     return (
         <div className='list-header'>
@@ -60,7 +71,7 @@ const List = () => {
             </div>
 
             {/*RENDER*/}
-            {prList?.map((pr, index) => {
+            {currentPage?.map((pr, index) => {
                 return (
                     <div className='list-body-header' key={index}>
                         <div className='list-body-header-icon'>
@@ -73,27 +84,40 @@ const List = () => {
                                 <BsCheckLg size={17} color="#018339" />
                             </div>&nbsp;
                             {pr.labels.map((label) => (
-                                <>
-                                    <div className='header-text-1'>
-                                        {label.name === "CLA Signed" ? (
-                                            <div className='header-sub-text-1'>{label.name}</div>
-                                        ) : label.name === "React Core Team" ? (
-                                            <div className='header-sub-text-2'>{label.name}</div>
-                                        ) : ''}
-                                    </div>
-                                    <p className='para'>{label.description}</p>
-                                </>
+                                <div className='header-text-1'>
+                                    {label.name === "CLA Signed" ? (
+                                        <div className='header-sub-text-1'>{label.name}</div>
+                                    ) : label.name === "React Core Team" ? (
+                                        <div className='header-sub-text-2'>{label.name}</div>
+                                    ) : ''}
+                                </div>
                             ))}
+
+                            <p className='list-p'>Author:&nbsp;{pr.user.login}</p>
                         </div>
-                        {/* {getCommentsNumber(pr.comments_url) && <div className='list-body-header-action'>
-                            <BiMessage />
-                            <p>{hello}</p>
-                        </div>} */}
                         <Comments commentsUrl={pr.comments_url} />
                     </div>
                 )
             })}
-            <Pagination />
+            <div className='divider'></div>
+
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={10}
+                pageCount={pageCount}
+                previousLabel="< previous"
+                renderOnZeroPageCount={null}
+                containerClassName='pagination'
+                pageLinkClassName='page-num'
+                previousClassName='page-num'
+                nextLinkClassName='page-num'
+                activeLinkClassName='active'
+                nextClassName='next'
+            />
+
+            {/* <Pagination /> */}
         </div>
     )
 }

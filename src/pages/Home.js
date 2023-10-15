@@ -36,9 +36,14 @@ const Home = () => {
                     </div>
                     <div className='thumbCrumb_btn1'>
                         <HiOutlineTag size={16} />
-                        <p>Label</p>
+                        <p>Labels</p>
+                        <div className='thumbCrumb_btn1-count'>66</div>
                     </div>
-                    <div className='thumbCrumb_btn1'><GoMilestone size={16} />&nbsp;Milestone</div>
+                    <div className='thumbCrumb_btn2'>
+                        <GoMilestone size={16} />&nbsp;
+                        <p>Milestone</p>
+                        <div className='thumbCrumb_btn2-count'>1</div>
+                    </div>
                 </div>
                 <div className='thumCrumbRightSide'>New</div>
                 <div className='thumCrumbRightSide-web'>New pull request</div>
@@ -49,7 +54,9 @@ const Home = () => {
                 <input placeholder='is:pr is:open' className='thumCrumbLeftSide-input' />
             </div>
 
-            <List />
+            <div className='list-section'>
+                <List />
+            </div>
             <div className='sub-footer'>
                 <AiOutlineBulb />&nbsp;<p>ProTip! Updated in the last three days</p>
             </div>

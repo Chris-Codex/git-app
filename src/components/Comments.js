@@ -20,14 +20,10 @@ const Comments = ({ commentsUrl }) => {
     }, [commentsUrl])
 
 
-
-
-
-
     return (
         <div className='list-body-header-action'>
-            <BiMessage />
-            <p>{numberOfComments}</p>
+            {numberOfComments > 0 && <BiMessage />}
+            {numberOfComments > 0 && <p>{numberOfComments}</p>}
         </div>
     )
 }

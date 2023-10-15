@@ -9,7 +9,7 @@ export const ThemeProvider = ({ children }) => {
     const [prList, setPrList] = useState()
 
     const res = async () => {
-        axios.get(`https://api.github.com/repos/facebook/react/pulls?per_page=${10}`)
+        axios.get(`https://api.github.com/repos/facebook/react/pulls`)
             .then((response) => {
                 setPrList(response.data)
             })
