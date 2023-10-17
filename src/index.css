@@ -64,7 +64,8 @@ body {
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
-  flex: 70%;
+  margin-left: 185px;
+  flex: 50%;
   height: 40px;
   border: 1px solid #474646;
   border-radius: 10px;
@@ -122,6 +123,7 @@ body {
 
  .resource {
    display: flex;
+   justify-content: space-between;
    gap: 5px;
    align-items: center;
    padding-left: 55px;
@@ -147,6 +149,45 @@ body {
    font-size: 12px;
    color: #878787;
    overflow: hidden;
+ }
+
+ .resource-leftSide {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 50%;
+ }
+
+ .resource-rightSide {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   margin-right: 55px;
+   gap: 5px;
+   flex: 50%;
+ }
+
+ .resource-rightSide-btn1 {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #99999970;
+  border-radius: 4px;
+  color: #585858;
+  font-size: 14px;
+ }
+
+ .resource-border-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  background-color: #9c9c9c3f;
  }
 
  .header {
@@ -341,6 +382,10 @@ body {
   padding-left: 10px;
 }
 
+.fb-react {
+  color: #0a5dd2;
+}
+
 .list-header-web {
   display: flex;
   justify-content: space-between;
@@ -364,7 +409,7 @@ body {
 }
 
 .header-links {
-  flex: 50%;
+  flex: 55%;
 }
 
 .list-top-web-title {
@@ -408,6 +453,19 @@ body {
    border-top: 1px solid #c7c7c7;
    border-left: 1px solid #c7c7c7;
    border-right: 1px solid #c7c7c7;
+ }
+
+ .list-body-header:hover {
+    width: 93%;
+    height: auto;
+    margin-left: 55px;
+    margin-right: 55px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 26px;
+    background-color: #e0e0e050;
+    cursor: pointer; 
  }
 
  .list-body-header-text {
@@ -482,56 +540,66 @@ body {
   align-items: center;
   justify-content: center;
   color: #777;
-  font-size: 15px;
-  margin-top: 20px;
-  margin-left: 3%;
+  font-size: 14px;
+  margin-top: -65px;
+  /* margin-left: 12%;
   border-bottom: 1px solid #bcbcbc;
-  width: 94%;
-  padding-bottom: 30px;
+  width: 83%;
+  padding-bottom: 30px; */
  }
 
  .web-footer {
   display: flex;
  }
 
- .footer1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
- }
-
  .copyright-footer {
    display: flex;
    align-items: center;
-   flex: 30%;
-   margin-top: 20px;
-   padding-left: 30px;
-   padding-right: 30px;
    font-size: 13px;
    color: #777;
  }
 
- .footer1 ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  list-style: none;
-  flex: 70%
+ .loading-header {
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    height: auto;
+    width: 500px;
  }
 
- .footer1 ul li {
+ .img-loading {
+  width: 20%;
+ }
+ 
+
+ .footer-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 50px;
-  font-size: 12px;
+  justify-content: space-between;
+  height: 50px;
+  margin-top: 3px;
+  margin-left: 160px;
+  margin-right: 150px;
+  margin-bottom: 40px;
+ }
+
+.footer-header-leftSide {
+  width: 170px;
+}
+
+
+
+ .footer-header-rightSide ul {
+  display: flex;
+  list-style: none;
   color: #5b9af1;
-  font-size: 14px;
+  font-size: 13px;
+ }
+
+ .footer-header-rightSide ul li{
+  margin-left: 30px;
  }
 
  .pagination {
@@ -575,6 +643,14 @@ body {
    border: 1px solid #c7c7c784;
    margin-top: 1px;
    margin-left: 55px;
+ }
+
+ .footer-divider {
+  display: flex;
+  justify-content: center;
+  
+   border: 1px solid #e1e1e184;
+   margin-top: 30px;
  }
 
  .pagination {
@@ -657,11 +733,14 @@ body {
   .mobile-menu{
     position: absolute;
     display: flex;
-    width: 95%;
-    height: 500px;
-    margin-left: 20px;
-    background-color: rgb(247, 247, 247);
+    width: 90%;
+    height: 700px;
+    background-color: #ececec;
     border-radius: 10px;
+  }
+
+  .mobile-menu-mobile {
+    display: none;
   }
 
   .mobile-menu ul{
@@ -695,16 +774,18 @@ body {
     align-items: center;
     padding-left: 10px;
     width: 83%;
-    height: 40px;
-    border: 1px solid #000;
+    height: 30px;
+    border: 1px solid #595959;
     border-radius: 10px;
   }
 
   .form-search-icon-input {
     width: 100%;
-    height: 33px;
+    height: 30px;
     border: none;
-  background-color: rgb(247, 247, 247);
+    background-color: #ececec63;
+    border: none;
+    outline: none;
   }
 
   .clock-icon {
@@ -718,7 +799,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 83%;
-    height: 50px;
+    height: 38px;
     background-color: #000;
     margin-right: 20px;
     margin-top: 20px;
@@ -822,9 +903,9 @@ body {
     width: 200px;
     height: auto;
     top: 208px;
-    margin-left: 163px;
+    margin-left: 170px;
     padding: 20px;
-    background-color: #e1e1e1c7;
+    background-color: #f4f4f4;
     border-radius: 5px;
   }
 
@@ -984,6 +1065,19 @@ body {
     border-right: 1px solid #c7c7c7;
   }
 
+  .list-body-header:hover {
+    width: 110%;
+    height: auto;
+    margin-left: -34px;
+    padding-bottom: 1px;
+    padding-top: 15px;
+    padding-left: 35px;
+    padding-right: 26px;
+    background-color: #e0e0e050;
+    cursor: pointer;
+  }
+
+
   .divider {
     width: 110%;
     border: 1px solid #c7c7c784;
@@ -1043,6 +1137,10 @@ body {
     display: none;
   }
 
+  .footer-header {
+    display: none;
+  }
+
   .header-links {
     display: none;
   }
@@ -1068,16 +1166,33 @@ body {
     display: none;
   }
 
+  .resource-leftSide {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex: 50%;
+    }
+
+
+  .resource-rightSide {
+    display: none;
+  }
+
   .sub-footer {
     display: flex;
     align-items: center;
     justify-content: center;
     color: #777;
-    font-size: 15px;
-    margin-top: 20px;
+    font-size: 13px;
+    margin-top: -60px;
+    margin-left: -2px;
     border-bottom: 1px solid #bcbcbc;
     padding-bottom: 30px;
-    width: 95%;
+    width: 100%;
+  }
+
+  .list-p {
+    margin-top: -23px;
   }
 
   .copyright-footer1 {
@@ -1124,6 +1239,26 @@ body {
   .list-section {
     margin-left: 1px;
     margin-right: 1px;
+  }
+
+  .fb-react {
+    color: #014db7;
+  }
+
+  .loading-header {
+    position: absolute;
+    top: 60%;
+    transform: translate(-70%, -50%);
+    height: auto;
+    width: 100px;
+  }
+
+  .img-loading {
+    width: 50%;
+  }
+
+  .footer-divider{
+    display: none;
   }
 
 

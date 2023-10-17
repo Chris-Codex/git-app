@@ -15,10 +15,11 @@ const List = () => {
     const [itemOffset, setItemOffset] = useState(0);
     const itemsPerPage = 10;
 
+
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        setCurrentPage(prList.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(prList.length / itemsPerPage))
+        setCurrentPage(prList?.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(prList?.length / itemsPerPage))
     }, [itemOffset, itemsPerPage, prList])
 
     // Invoke when user click to request another page.
@@ -71,9 +72,9 @@ const List = () => {
             </div>
 
             {/*RENDER*/}
-            {currentPage?.map((pr, index) => {
+            {currentPage?.map((pr) => {
                 return (
-                    <div className='list-body-header' key={index}>
+                    <div className='list-body-header' key={pr.id}>
                         <div className='list-body-header-icon'>
                             <DiGitCompare size={20} color="#018339" />
                         </div>
@@ -84,7 +85,7 @@ const List = () => {
                                 <BsCheckLg size={17} color="#018339" />
                             </div>&nbsp;
                             {pr.labels.map((label) => (
-                                <div className='header-text-1'>
+                                <div className='header-text-1' key={label.id}>
                                     {label.name === "CLA Signed" ? (
                                         <div className='header-sub-text-1'>{label.name}</div>
                                     ) : label.name === "React Core Team" ? (
@@ -92,7 +93,6 @@ const List = () => {
                                     ) : ''}
                                 </div>
                             ))}
-
                             <p className='list-p'>Author:&nbsp;{pr.user.login}</p>
                         </div>
                         <Comments commentsUrl={pr.comments_url} />
@@ -103,11 +103,11 @@ const List = () => {
 
             <ReactPaginate
                 breakLabel="..."
-                nextLabel="next >"
+                nextLabel="Next >"
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={10}
                 pageCount={pageCount}
-                previousLabel="< previous"
+                previousLabel="< Previous"
                 renderOnZeroPageCount={null}
                 containerClassName='pagination'
                 pageLinkClassName='page-num'
@@ -116,8 +116,6 @@ const List = () => {
                 activeLinkClassName='active'
                 nextClassName='next'
             />
-
-            {/* <Pagination /> */}
         </div>
     )
 }

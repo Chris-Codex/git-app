@@ -4,7 +4,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { AiOutlineClose } from "react-icons/ai"
 
 const MobileNavbar = ({ toggle }) => {
-    const { showLinks, setShowLinks, toggleMobileView } = toggle;
+    const { showLinks, toggleMobileView } = toggle;
 
     return (
         <>
@@ -18,12 +18,13 @@ const MobileNavbar = ({ toggle }) => {
                     </div>
                     {showLinks ? (
                         <div className='mRightSide' onClick={toggleMobileView}>
-                            <GiHamburgerMenu size={35} />
+                            <AiOutlineClose size={35} />
                         </div>
                     ) : (
                         <div className='mRightSide' onClick={toggleMobileView}>
-                            <AiOutlineClose size={35} />
+                            <GiHamburgerMenu size={35} />
                         </div>
+
                     )}
                 </div>
             </div>

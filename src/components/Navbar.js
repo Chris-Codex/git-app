@@ -2,6 +2,7 @@ import React from 'react'
 import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { FiSearch } from 'react-icons/fi'
 import { AiFillGithub } from 'react-icons/ai'
+import { TbClock2 } from 'react-icons/tb'
 import MobileNavbar from './MobileNavbar';
 
 
@@ -25,7 +26,7 @@ const Navbar = ({ toggle }) => {
                     <div className='icon'><FiSearch size={16} /></div>
                     <div className='input-header'>
                         <input placeholder='Search or jump to...' className='search-input' />
-                        <div className='search-clock'>Clock</div>
+                        <div className='search-clock'><TbClock2 size={20} color="#bababaa2" /></div>
                     </div>
                 </div>
 

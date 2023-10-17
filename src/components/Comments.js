@@ -10,7 +10,7 @@ const Comments = ({ commentsUrl }) => {
         const getCommentsNumber = async () => {
             try {
                 const response = await axios.get(commentsUrl)
-                setNumberOfComments(response.data.length)
+                setNumberOfComments(response.data?.length)
             } catch (error) {
                 console.error('Error Fetching Comments:', error)
             }

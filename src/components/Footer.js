@@ -25,12 +25,13 @@ const Footer = () => {
                 <BsGithub size={20} /> &nbsp; &copy; 2023 Github. Inc
             </div>
 
-            <div className='web-footer'>
-                <div className='footer1'>
+            <div className='footer-header'>
+                <div className='footer-header-leftSide'>
                     <div className='copyright-footer'>
                         <BsGithub size={20} /> &nbsp; &copy; 2023 Github. Inc
                     </div>
-
+                </div>
+                <div className='footer-header-rightSide'>
                     <ul>
                         <li>Terms</li>
                         <li>Privacy</li>
@@ -48,6 +49,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
+
         </>
     )
 }

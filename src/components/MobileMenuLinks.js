@@ -4,12 +4,12 @@ import { FiSearch } from 'react-icons/fi'
 import { WiTime7 } from 'react-icons/wi'
 
 export const MobileMenuLinks = ({ toggle }) => {
-    const { showLinks, setShowLinks, toggleMobileView } = toggle;
+    const { showLinks } = toggle;
 
     return (
         <>
-            {!showLinks ? (
-                <nav className='mobile-menu'>
+            {showLinks ? (
+                <nav className={`${!showLinks === true ? 'mobile-menu-mobile' : 'mobile-menu'}`}>
                     <ul>
                         <li className='menu-li'>Product <MdOutlineArrowForwardIos className='icons' /></li>
                         <li className='menu-li'>Solutions <MdOutlineArrowForwardIos className='icons' /></li>

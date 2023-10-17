@@ -8,17 +8,23 @@ export const ThemeProvider = ({ children }) => {
     const [showLinks, setShowLinks] = useState(false);
     const [prList, setPrList] = useState()
 
-    const res = async () => {
-        axios.get(`https://api.github.com/repos/facebook/react/pulls`)
-            .then((response) => {
-                setPrList(response.data)
-            })
-            .catch((error) => console.log(error))
+    const getResponse = async () => {
+        try {
+            await axios.get(`https://api.github.com/repos/facebook/react/pulls`)
+                .then((response) => {
+                    setPrList(response.data)
+                })
+                .catch((error) => console.log(error))
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 
+    
+
     useEffect(() => {
-        res();
-    }, [])
+        getResponse();
+    }, [getResponse])
 
 
     const toggleMobileView = () => {
@@ -31,6 +37,7 @@ export const ThemeProvider = ({ children }) => {
 
     const value = {
         prList,
+        getResponse,
         showLinks,
         setShowLinks,
         toggleMobileView,
